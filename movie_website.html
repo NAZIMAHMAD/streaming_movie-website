@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>MovieDb store</title>
+  
+  
+  
+
+  <!-- Custom Styles -->
+  
+  
+  <link rel="stylesheet" href="style.css">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
+</head>
+
+<style>
+  
+  
+  
+  *
+{
+  margin:0px;
+  padding:0px;
+}
+
+html 
+
+{
+  scroll-behavior: smooth;
+}
+
+
+
+#Page_container
+{
+  background-color:rgb(100, 100, 100);
+  width:100%;
+  height:2000px;
+  
+}
+
+#header
+{
+  background-color:black;
+  width:100%;
+  height:100px;
+  display: flex ;
+  justify-content:space-around;
+  box-sizing:border-box;
+  align-items: center ;
+  color: grey;
+  position:sticky;
+  top:-10px;
+}
+
+#navbar ul li
+{
+  display: inline-block;
+  padding-left:10px;
+  font-size:10px;
+}
+
+#nav-list li a
+{
+  color:white;
+  text-decoration:none;
+}
+
+#nav-list li a:hover
+{
+  
+  
+  color:grey;
+  
+  
+}
+ 
+
+#header .fa-bars
+  {
+    display:none;
+  }
+  
+   #navbar .fa-rectangle-xmark
+   {
+     display:none;
+   }
+  
+
+#logo
+{
+  color:white;
+}
+
+
+
+#search_bar 
+{
+border-radius:5px;
+padding-left:10px;
+color:grey;
+height:30px;
+outline-style:none;
+border:none;
+
+}
+
+#search_btn:hover
+{
+  background-color:green;
+}
+
+#search_btn
+{
+  width:70px;
+  background-color:red;
+  border:none;
+  font-size:10px;
+  height:30px;
+  border-radius:2px;
+  cursor:pointer;
+}
+
+#Main_content
+{
+  background-color:#000026;
+  width:100%;
+  height:2000px;
+  
+}
+
+.movie_img
+{
+  width:140px;
+  height:200px;
+}
+
+#popular
+{
+  display: flex ;
+  justify-content:space-around;
+  margin-top:30px;
+}
+
+.movie
+{
+  text-align: center ;
+  text-transform:capitalize ;
+  color: antiquewhite;
+  font-size:10px;
+}
+
+#popular_list-title
+{
+  color:white;
+padding-left:50px;
+padding-top:20%;
+
+
+}
+
+#top_rated
+{
+  display:flex;
+  justify-content:space-around;
+  margin-top:30px;
+}
+
+#top_rated-title
+{
+  padding-top:30%;
+  color: white;
+  padding-left:50px;
+}
+
+#upcoming_movie-title
+{
+  padding-top:20%;
+  color: white;
+  padding-left:50px;
+}
+
+#upcoming_movie
+{
+  display:flex;
+  justify-content:space-around;
+  margin-top:40px;
+}
+
+
+
+
+/*
+ responsive here */
+ 
+ @media (max-width:400px)
+ {
+   
+   #header
+   {
+     background-color:black;
+     color:white;
+     width:100%;
+     height:100px;
+     position:fixed;
+     
+    
+     
+   
+     
+   }
+   
+   #navbar 
+   {
+     background-color:black;
+     width:100%;
+     height:600px;
+     position: absolute ;
+     top:0px;
+     display:none;
+     position:fixed;
+     
+    
+   }
+   
+   #nav-list
+   {
+    
+    display:flex;
+    flex-direction:column ;
+    margin-top:30%;
+    margin-left:70px;
+    
+   
+   }
+   
+   #nav-list li 
+   {
+     padding-top:50px;
+    font-size:40px;
+     
+   }
+   
+   #nav-list li a
+   {
+     font-size:20px;
+   }
+   
+  
+
+  #logo
+  {
+    font-size:15px;
+
+  }
+  
+  
+  #header .fa-bars
+  {
+    display:block;
+    cursor:pointer ;
+    border:1px solid grey;
+    width:30px;
+    height:25px;
+    text-align: center ;
+    padding-top:5px;
+  }
+  
+  #navbar .fa-rectangle-xmark
+  {
+    font-size:30px;
+    float:right;
+    padding-right:60px;
+    padding-top:50px;
+    display:block;
+    
+  }
+  
+  #popular
+{
+  display: flex ;
+  flex-direction:column;
+  margin-top:50px;
+}
+
+
+
+#top_rated
+{
+  display: flex ;
+  flex-direction:column;
+  margin-top:30px;
+}
+ 
+  
+  #upcoming_movie
+{
+  display: flex ;
+  flex-direction:column;
+  margin-top:30px;
+} 
+
+#Main_content
+{
+  background-color:grey;
+  width:100%;
+  height:5500px;
+  
+}
+
+.movie_img
+{
+  width:280px;
+  height:300px;
+  margin-top:15%;
+}
+
+#top_rated-title
+{
+  font-weight:bolder;
+  font-size:30px;
+  color: white;
+  text-align: center ;
+  padding-top:20%;
+  padding-right:50px;
+  
+}
+
+#upcoming_movie-title
+{
+  font-weight:bolder;
+  font-size:30px;
+  color: white;
+  text-transform:capitalize ;
+}
+
+#popular_list-title
+{
+  font-size:30px;
+  padding-left:25%;
+  font-weight:bolder;
+  padding-top:45%;
+  
+}
+
+   
+   
+ 
+
+</style>
+
+
+
+
+<body>
+  
+  <!--static webpage -->
+ 
+  <div id="Page_container">
+    
+    <!--Navigation and header bar here -->
+    
+    <header id="header">
+      
+      <h3 id="logo">MovieDb</h3>
+      
+      <nav id="navbar">
+       
+<i class="fa-regular fa-rectangle-xmark" onclick="xmarkBtn()"></i>
+        
+        <ul id="nav-list">
+          
+          
+          
+          <li> 
+          <a href="#popular">Popular</a>
+          </li>
+          
+          
+            <li>
+              <a href="#top_rated">Top Rated</a>
+              </li>
+            
+            
+           <li>
+             <a href="#upcoming_movie">Upcoming 
+             </a>
+             </li>
+           
+           <li>
+             <input type="text" name="movie" placeholder="Movie Name" id="search_bar"/>
+           </li>
+           
+           <li>
+             <button type="submit" name="search" id="search_btn">Search</button></li>
+          
+          
+          </ul>
+        
+        
+        </nav>
+        
+    
+        
+        <i class="fa-solid fa-bars" onclick="toggleBar()"></i>
+        
+ 
+      
+    </header>
+    
+    
+    
+    
+    <!-- Main content of body start using main element -->
+    
+    <main id="Main_content">
+      
+      
+      
+      
+      <div id="popular_list-title">Popular list</div>
+      
+      <section id="popular">
+        
+        <div class="movie">
+          
+        <img src="https://image.tmdb.org/t/p/w500/bcCBq9N1EMo3daNIjWJ8kYvrQm6.jpg" alt="" class="movie_img"/>
+        <h3>Eternals</h3>
+        <p>Rating:3.0</p>
+        
+       </div>
+       
+       
+     <div class="movie">
+       
+<img src="https://filmfare.wwmindia.com/content/2022/oct/top-hollywood-movies-you-cant-miss-top-gun-maverick.jpg" alt="" class="movie_img"/>
+  <h3>Top Gun</h3>
+        <p>Rating:6.7</p>
+        
+      </div> 
+      
+      
+      <div class="movie">
+        
+       
+       <img src="https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:oi-discovery-catalog@@icons@@like_202006280402.png,ox-24,oy-617,ow-29:q-80/et00310792-blpzhjqpnu-portrait.jpg" alt="" class="movie_img"/>
+       
+        <h3>Black panther</h3>
+        <p>Rating:3.5</p>
+        
+      </div>
+      
+      <div class="movie">
+        
+<img src="https://www.filmibeat.com/img/226x100x283/popcorn/movie_posters/blackpantherwakandaforever-20220304201255-20797.jpg" alt="" class="movie_img"/>
+          <h3>vakanda forever</h3>
+        <p>Rating:3.7</p>
+        
+      </div>
+        
+        </section>
+        
+        
+        
+        
+        
+        
+         
+         
+         
+         <!-- top rated list -->
+         
+          <div id="top_rated-title">Top rated list</div>
+      
+      <section id="top_rated">
+        
+        <div class="movie">
+          
+        <img src="https://qqcdnpictest.mxplay.com/pic/10513adbae0cfd7f5d89b3e0089b3561/en/2x3/320x480/test_pic1594206435111.webp" alt="" class="movie_img"/>
+        <h3>Vking seige</h3>
+        <p>Rating:3.6</p>
+        
+       </div>
+       
+       
+     <div class="movie">
+       
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtH4iKRNesYNgI7zGGoD2qmbcpyG3IDrvHVemTXp00bDls1vRy-Sx5Y6J_0sAeHByhBwQ&usqp=CAU" alt="" class="movie_img"/>
+  <h3>Vking destiny</h3>
+        <p>Rating:3.2</p>
+        
+      </div> 
+      
+      
+      <div class="movie">
+        
+       
+       <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9qvZMEf4pcOmjhVafe2dq5LEARvtbNRKq80ckzyETMqKFeXknamBTRPX-rDGHHLeFqvc&usqp=CAU" alt="" class="movie_img"/>
+       
+        <h3>Fall of the kingdom</h3>
+        <p>Rating:4.8</p>
+        
+      </div>
+      
+      <div class="movie">
+        
+<img src="https://m.timesofindia.com/thumb.cms?msid=5348868&width=200&height=281" alt="" class="movie_img"/>
+          <h3>Avatar</h3>
+        <p>Rating:2.8</p>
+        
+      </div>
+        
+        </section>
+        
+        
+        <!-- upcoming movie -->
+        
+        
+         <div id="upcoming_movie-title">upcoming movie</div>
+      
+      <section id="upcoming_movie">
+        
+        <div class="movie">
+          
+        <img src="https://www.bollymoviereviewz.com/wp-content/uploads/2013/05/330px-Fantastic_Beasts2C_The_Secrets_of_Dumbledore_teaser_poster.png" alt="" class="movie_img"/>
+        <h3>secret of dumbledore</h3>
+        <p>Rating:5.8</p>
+        
+       </div>
+       
+       
+     <div class="movie">
+       
+<img src="https://images.lifestyleasia.com/wp-content/uploads/sites/7/2022/01/04165151/MV5BYjlhNTA3Y2ItYjhiYi00NTBiLTg5MDMtZDJjMDZjNzVjNjJmXkEyXkFqcGdeQXVyMTEyMjM2NDc2._V1_-683x1024.jpg" alt="" class="movie_img"/>
+  <h3>morbius</h3>
+        <p>Rating:7.8</p>
+        
+      </div> 
+      
+      
+      <div class="movie">
+        
+       
+       <img src="https://i.gadgets360cdn.com/products/large/dune-1200x1779-1633607256036.jpg" alt="" class="movie_img"/>
+       
+        <h3>It begins</h3>
+        <p>Rating:4.8</p>
+        
+      </div>
+      
+      <div class="movie">
+        
+<img src="https://www.filmiforest.com/img/poster_image/dune-2021.jpg" alt="" class="movie_img"/>
+          <h3>Dune</h3>
+        <p>Rating:3.9</p>
+        
+      </div>
+        
+        </section>
+        
+        
+        
+        
+        
+        
+      
+      </main>
+    
+    
+    
+    
+  </div>
+  
+  
+  
+  
+  
+  
+  
+  
+  <script>
+  
+  
+    function toggleBar()
+    
+    {
+ 
+    document.getElementById("navbar").style.display="block";
+    
+    }
+    
+    
+    function xmarkBtn()
+    
+    {
+      
+      document.getElementById("navbar").style.display="none";
+      
+      
+      
+    }
+    
+    
+  </script>
+  
+  
+  
+  
+  
+</body>
+
+
+
+</html>
